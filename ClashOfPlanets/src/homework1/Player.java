@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package homework1;
 
 import java.awt.Graphics;
 
 /**
  *
- * @author luisf
+ * @author Luis Felipe Alvarez Sanchez A01194173
  */
 public class Player extends Item{
     private int direction;
@@ -17,6 +17,7 @@ public class Player extends Item{
     private int height;
     private Game game;
     private int speed;
+    private boolean collided;
 
     public void setSpeed(int speed) {
         this.speed = speed;
@@ -93,6 +94,6 @@ public class Player extends Item{
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Assets.player,getX(), getY(), getWidth(), getHeight(), null);
+        g.drawImage(Assets.planetOne,getX(), getY(), getWidth(), getHeight(), null);
     }
 }
