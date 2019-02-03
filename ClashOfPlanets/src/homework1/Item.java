@@ -9,7 +9,7 @@ import java.awt.Graphics;
 
 /**
  *
- * @author luisf
+ * @author Luis Felipe Alvarez Sanchez A01194173
  */
 public abstract class Item {
     protected int x;

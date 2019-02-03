@@ -11,7 +11,7 @@ import java.awt.image.BufferStrategy;
 
 /**
  *
- * @author luisf
+ * @author Luis Felipe Alvarez Sanchez A01194173
  */
 public class Game implements Runnable{
     private BufferStrategy bs;
@@ -48,7 +48,7 @@ public class Game implements Runnable{
     public void init(){
         display = new Display(title, getWidth(), getHeight());
         Assets.init();
-        player = new Player(0, getHeight() - 100, 1, 100, 100, this);
+        player = new Player(getWidth()/2,getHeight()/2, 1, 100, 100, this);
         display.getJframe().addKeyListener(keyManager);
     }
     @Override

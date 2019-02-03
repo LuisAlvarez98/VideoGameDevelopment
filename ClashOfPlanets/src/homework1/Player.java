@@ -17,7 +17,14 @@ public class Player extends Item{
     private int height;
     private Game game;
     private int speed;
+    
+    private int control;
+    
     private boolean collided;
+    private boolean still;
+    
+    private int counter;
+    
 
     public void setSpeed(int speed) {
         this.speed = speed;
@@ -34,6 +41,22 @@ public class Player extends Item{
         this.height = height;
         this.game = game;
         this.speed = 1;
+        this.collided = false;
+        this.counter = 0;
+        this.still = true;
+        this.control = 3;
+    }
+
+    public int getControl() {
+        return control;
+    }
+
+    public void setControl(int control) {
+        this.control = control;
+    }
+
+    public void setCollided(boolean collided) {
+        this.collided = collided;
     }
     
     public int getDirection() {
@@ -60,40 +83,54 @@ public class Player extends Item{
         this.width = width;
     }
    
-    
-
+  
     @Override
-    public void tick() {
-      //moving player depending on flags
-      if(game.getKeyManager().up){
-          setY(getY() - getSpeed());
-      }
-      if(game.getKeyManager().down){
-          setY(getY() + getSpeed());
-      }
-      if(game.getKeyManager().left){
-          setX(getX() - getSpeed());
-      }
-      if(game.getKeyManager().right){
-          setX(getX() + getSpeed());
-      }
+    public void tick() {     
+        if(getControl() == 1){
+            setX(getX() + getSpeed());
+        }else if(getControl() == 2){
+            setX(getX() - getSpeed() );
+        }else if(getControl() == 3){
+             setY(getY() - getSpeed() );
+        }else if(getControl() == 4){
+             setY(getY() + getSpeed() );
+        }
+      //collisions
       // reset x position and y position if colision
       if(getX() + 60 >= game.getWidth()){
           setX(game.getWidth() - 60);
+          setControl(2);
+          setCollided(true);
       }
       else if(getX() <= -30){
-          setX(-30);
+           setX(-30);
+           setControl(1);
+           setCollided(true);
       }
       if(getY() + 80 >= game.getHeight()){
           setY(game.getHeight() - 80);
+             setControl(3);
+           setCollided(true);
       }
-      else if(getY() <= -20){
-          setY(-20);
+      else if(getY() <= -30){
+            setY(-30);
+            setControl(4);
+          setCollided(true);
       }
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Assets.planetOne,getX(), getY(), getWidth(), getHeight(), null);
+        counter++;
+        
+        if(collided){
+            g.drawImage(Assets.planetTwo,getX(), getY(), getWidth(), getHeight(), null);
+        }else{
+            g.drawImage(Assets.planetOne,getX(), getY(), getWidth(), getHeight(), null);
+        }
+        if(counter > 200 && collided){
+            setCollided(false);
+            counter=0;
+        }
     }
 }

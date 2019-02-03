@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 
 /**
  *
- * @author luisf
+ * @author Luis Felipe Alvarez Sanchez A01194173
  */
 public class KeyManager implements KeyListener{
     //Flags to move the player
@@ -26,17 +26,16 @@ public class KeyManager implements KeyListener{
     }
     @Override
     public void keyTyped(KeyEvent e){
-        
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keys[e.getKeyCode()] = true;
+        //keys[e.getKeyCode()] = true;
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        keys[e.getKeyCode()] = false;
+        keys[e.getKeyCode()] = true;
     }
     /**
      * to enable or disable moves on every tick

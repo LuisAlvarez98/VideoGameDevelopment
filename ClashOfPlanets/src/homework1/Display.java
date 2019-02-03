@@ -12,7 +12,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
- * @author luisf
+ * @author Luis Felipe Alvarez Sanchez A01194173
  */
 public class Display {
     private JFrame jframe;

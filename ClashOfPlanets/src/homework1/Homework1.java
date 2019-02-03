@@ -15,7 +15,7 @@ public class Homework1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Game g = new Game("Juego",800,500);
+        Game g = new Game("Juego",1080,800);
         g.start();
     }
     
