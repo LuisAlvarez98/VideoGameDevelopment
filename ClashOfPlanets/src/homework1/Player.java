@@ -196,8 +196,8 @@ public class Player extends Item{
            setMovement(4);
            setCollided(true);
       }
-      if(getY() + 80 >= game.getHeight()){
-          setY(game.getHeight() - 80);
+      if(getY() + 100 >= game.getHeight()){
+          setY(game.getHeight() - 100);
            setMovement(1);
            setCollided(true);
       }
@@ -220,7 +220,7 @@ public class Player extends Item{
         }else{
             g.drawImage(Assets.planetOne,getX(), getY(), getWidth(), getHeight(), null);
         }
-        if(counter > 1000 && collided){
+        if(counter > 200 && collided){
             setCollided(false);
             counter=0;
         }
