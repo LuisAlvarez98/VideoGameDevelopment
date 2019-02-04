@@ -125,7 +125,6 @@ public class Player extends Item{
     public void tick() {   
             //Up movement
             if(game.getKeyManager().up){
-                 System.out.println("up");
                  game.getKeyManager().keyCheck(KeyEvent.VK_UP, false);
                  setMovement(1);
                if(!dir[0]){
@@ -145,9 +144,7 @@ public class Player extends Item{
             }
             //Down movement
             if(game.getKeyManager().down){
-                System.out.println("down");
                 game.getKeyManager().keyCheck(KeyEvent.VK_DOWN, false);
-                
                 setMovement(2);
                if(!dir[1]){
                      setSpeed(getSpeed()-1);
@@ -205,6 +202,7 @@ public class Player extends Item{
             }
            
          setSpeed(getSpeed());
+         //Movement decider
          switch(getMovement()){
              case 1:
                   setY(getY() - getSpeed());
@@ -219,7 +217,7 @@ public class Player extends Item{
                  setX(getX() + getSpeed());
                  break;
          }
-      // reset x position and y position if colision
+         //Colissions
       if(getX() + 60 >= game.getWidth()){
           setX(game.getWidth() - 60);
           setMovement(3);
@@ -237,7 +235,7 @@ public class Player extends Item{
       }
       else if(getY() <= -30){
           setY(-30);
-           setMovement(2);
+          setMovement(2);
           setCollided(true);
       }
     }
@@ -255,7 +253,7 @@ public class Player extends Item{
         }else{
             g.drawImage(Assets.planetOne,getX(), getY(), getWidth(), getHeight(), null);
         }
-        if(counter > 200 && collided){
+        if(counter > 300 && collided){
             setCollided(false);
             counter=0;
         }
