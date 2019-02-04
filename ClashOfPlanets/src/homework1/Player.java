@@ -253,7 +253,7 @@ public class Player extends Item{
         }else{
             g.drawImage(Assets.planetOne,getX(), getY(), getWidth(), getHeight(), null);
         }
-        if(counter > 300 && collided){
+        if(counter > 260 && collided){
             setCollided(false);
             counter=0;
         }
