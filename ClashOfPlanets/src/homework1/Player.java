@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package homework1;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 /**
- *
+ *  Player class
  * @author Luis Felipe Alvarez Sanchez A01194173
+ *  4 Feb 2019
  */
 public class Player extends Item{
     private int direction;
@@ -18,41 +14,21 @@ public class Player extends Item{
     private int height;
     private Game game;
     private int speed;
-    
-    private int x;
-    private int y;
     private int movement;
     
-    private boolean incdec;
-    
-    private boolean collided;
-    
+    private boolean collided;    
     private int counter;
     
-    public boolean mv[] ={false,false,false,false};
-    
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-    public int getMovement() {
-        return movement;
-    }
-
-    public void setMovement(int movement) {
-        this.movement = movement;
-    }
-
-    public boolean isIncdec() {
-        return incdec;
-    }
-    
-    public void setIncdec(boolean incDec){
-        this.incdec = incDec;
-    }
+    public boolean dir[] ={false,false,false,false};
+    /**
+     * Player constructor
+     * @param x
+     * @param y
+     * @param direction
+     * @param width
+     * @param height
+     * @param game 
+     */
     public Player(int x, int y, int direction, int width, int height, Game game) {
         super(x, y);
         this.direction = direction;
@@ -63,110 +39,168 @@ public class Player extends Item{
         this.collided = false;
         this.counter = 0;
         this.movement = 1;
-        this.incdec = true;
     }
+    /**
+     * 
+     * @param speed 
+     */
+      public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+    /**
+     * 
+     * @return speed
+     */
+    public int getSpeed() {
+        return speed;
+    }
+    /**
+     * 
+     * @return movement
+     */
+    public int getMovement() {
+        return movement;
+    }
+    /**
+     * 
+     * @param movement 
+     */
+    public void setMovement(int movement) {
+        this.movement = movement;
+    }
+
+    /**
+     * 
+     * @param collided 
+     */
     public void setCollided(boolean collided) {
         this.collided = collided;
     }
-    
+    /**
+     * 
+     * @return direction 
+     */
     public int getDirection() {
         return direction;
     }
-
+    /**
+     * 
+     * @param direction 
+     */
     public void setDirection(int direction) {
         this.direction = direction;
     }
-
+    /**
+     * 
+     * @return height
+     */
     public int getHeight() {
         return height;
     }
-
+    /**
+     * 
+     * @return width
+     */
     public int getWidth() {
         return width;
     }
-
+    /**
+     * 
+     * @param height 
+     */
     public void setHeight(int height) {
         this.height = height;
     }
-
+    /**
+     * 
+     * @param width 
+     */
     public void setWidth(int width) {
         this.width = width;
     }
-   
-  
+    /**
+     * The overall movement of the player
+     */
     @Override
     public void tick() {   
-        //Moves to the right each time I click it it must increase speed by 1
+            //Up movement
             if(game.getKeyManager().up){
                  System.out.println("up");
                  game.getKeyManager().keyCheck(KeyEvent.VK_UP, false);
                  setMovement(1);
-               if(!mv[0]){
+               if(!dir[0]){
                      setSpeed(getSpeed()-1);
                       
                       if(getSpeed() == 0){
                         setSpeed(1);
-                        mv[0] = true;
+                        dir[0] = true;
                        }
                 }else{
                    setSpeed(getSpeed()+1); 
                 }
-                 mv[1] = false;
-                 mv[2] = false;
-                 mv[3] = false;
+                 //sets the other directions to false
+                 dir[1] = false;
+                 dir[2] = false;
+                 dir[3] = false;
             }
+            //Down movement
             if(game.getKeyManager().down){
                 System.out.println("down");
                 game.getKeyManager().keyCheck(KeyEvent.VK_DOWN, false);
                 
                 setMovement(2);
-               if(!mv[1]){
+               if(!dir[1]){
                      setSpeed(getSpeed()-1);
                       
                       if(getSpeed() == 0){
                         setSpeed(1);
-                        mv[1] = true;
+                        dir[1] = true;
                        }
                 }else{
                    setSpeed(getSpeed()+1); 
                 }
-                 mv[0] = false;
-                 mv[2] = false;
-                 mv[3] = false;
+                //sets the other directions to false
+                 dir[0] = false;
+                 dir[2] = false;
+                 dir[3] = false;
             }
+            //Left Movement
             if(game.getKeyManager().left){
                 game.getKeyManager().keyCheck(KeyEvent.VK_LEFT, false);
                 setMovement(3);
-                if(!mv[2]){
+                if(!dir[2]){
                      setSpeed(getSpeed()-1);
                       
                       if(getSpeed() == 0){
                         setSpeed(1);
-                        mv[2] = true;
+                        dir[2] = true;
                        }
                 }else{
                    setSpeed(getSpeed()+1); 
                 }
-                 mv[0] = false;
-                 mv[1] = false;
-                 mv[3] = false;
+                //sets the other directions to false
+                 dir[0] = false;
+                 dir[1] = false;
+                 dir[3] = false;
             }
+            //Right movement
             if(game.getKeyManager().right){
                 game.getKeyManager().keyCheck(KeyEvent.VK_RIGHT, false);
                 setMovement(4);
-                if(!mv[3]){
+                if(!dir[3]){
                      setSpeed(getSpeed()-1);
                       
                       if(getSpeed() == 0){
                         setSpeed(1);
-                        mv[3] = true;
+                        dir[3] = true;
                        }
                 }else{
                    setSpeed(getSpeed()+1); 
                 }
-                 mv[0] = false;
-                 mv[1] = false;
-                 mv[2] = false;   
+                //sets the other directions to false
+                 dir[0] = false;
+                 dir[1] = false;
+                 dir[2] = false;   
 
             }
            
@@ -206,10 +240,11 @@ public class Player extends Item{
            setMovement(2);
           setCollided(true);
       }
-      int speed = getSpeed();
-      System.out.println("Current speed:" + speed + mv[0] + mv[1] + mv[2] + mv[3]);
     }
-    
+    /**
+     * Renders the player
+     * @param g 
+     */
     @Override
     public void render(Graphics g) {
         counter++;

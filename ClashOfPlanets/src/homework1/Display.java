@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package homework1;
 
 import java.awt.Canvas;
@@ -11,8 +6,9 @@ import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
- *
+ * Display Class
  * @author Luis Felipe Alvarez Sanchez A01194173
+ * 4 Feb 2019
  */
 public class Display {
     private JFrame jframe;
@@ -20,26 +16,43 @@ public class Display {
     private String title;
     private int width;
     private int height;
-    
+    /**
+     * Display Constructor
+     * @param title
+     * @param width
+     * @param height 
+     */
     public Display(String title, int width, int height){
         this.title = title;
         this.width = width;
         this.height = height;
         createDisplay();
     }
-
+    /**
+     * 
+     * @return jframe
+     */
     public JFrame getJframe() {
         return jframe;
     }
-
+    /**
+     * 
+     * @param jframe 
+     */
     public void setJframe(JFrame jframe) {
         this.jframe = jframe;
     }
-    
+    /**
+     * 
+     * @return canvas
+     */
     public Canvas getCanvas(){
         return canvas;
     }
-        public void createDisplay(){
+    /**
+     * createDisplay method
+     */
+    public void createDisplay(){
         jframe = new JFrame(title);
         
         jframe.setSize(width, height);

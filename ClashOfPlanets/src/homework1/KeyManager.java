@@ -9,8 +9,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- *
+ * KeyManager Class
  * @author Luis Felipe Alvarez Sanchez A01194173
+ * 4 Feb 2019
  */
 public class KeyManager implements KeyListener{
     //Flags to move the player
@@ -20,24 +21,40 @@ public class KeyManager implements KeyListener{
     public boolean right;
     
     private boolean keys[]; // to store all the flags for every key
-    
+    /**
+     * KeyManager Constructor
+     */
     public KeyManager(){
         keys = new boolean[256];
     }
+    /**
+     * 
+     * @param e 
+     */
     @Override
     public void keyTyped(KeyEvent e){
     }
-
+    /**
+     * 
+     * @param e 
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         //keys[e.getKeyCode()] = false;
     }
-
+    /**
+     * 
+     * @param e 
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         keys[e.getKeyCode()] = true;
     }
-    
+    /**
+     * Sets a boolean to the key array
+     * @param key
+     * @param checker 
+     */
     public void keyCheck(int key, boolean checker){
         keys[key] = checker;
     }
