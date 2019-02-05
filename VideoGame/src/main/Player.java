@@ -63,6 +63,10 @@ public class Player extends Item{
 
     @Override
     public void tick() {
+        if(game.getMouseManager().isIzquierdo()){
+            setX(game.getMouseManager().getX());
+            setY(game.getMouseManager().getY());
+        }
       //moving player depending on flags
       if(game.getKeyManager().up){
           setY(getY() - getSpeed());
