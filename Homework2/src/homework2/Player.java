@@ -128,8 +128,6 @@ public class Player extends Item{
             setY(game.getMouseManager().getY());
         }
            
-           
-
          //Colissions
       if(getX() + 60 >= game.getWidth()){
           setX(game.getWidth() - 60);

@@ -13,13 +13,14 @@ public class Enemy extends Item{
     private int width;
     private int height;
     private Game game;
+    private Player player;
     private int speed;
     private int movement;
     
-    private boolean collided;    
-    private int counter;
+    private int dirX;
+    private int dirY;
     
-    public boolean dir[] ={false,false,false,false};
+    
     /**
      * Player constructor
      * @param x
@@ -29,16 +30,15 @@ public class Enemy extends Item{
      * @param height
      * @param game 
      */
-    public Enemy(int x, int y, int direction, int width, int height, Game game) {
+    public Enemy(int x, int y, int direction, int width, int height, Game game, Player player) {
         super(x, y);
         this.direction = direction;
         this.width = width;
         this.height = height;
         this.game = game;
         this.speed = 1;
-        this.collided = false;
-        this.counter = 0;
         this.movement = 1;
+        this.player = player;
     }
     /**
      * 
@@ -69,13 +69,6 @@ public class Enemy extends Item{
         this.movement = movement;
     }
 
-    /**
-     * 
-     * @param collided 
-     */
-    public void setCollided(boolean collided) {
-        this.collided = collided;
-    }
     /**
      * 
      * @return direction 
@@ -123,33 +116,47 @@ public class Enemy extends Item{
      */
     @Override
     public void tick() {  
-        if(game.getMouseManager().isIzquierdo()){
-            setX(game.getMouseManager().getX());
-            setY(game.getMouseManager().getY());
+       
+        if(getX() != player.getX()){
+           dirX =(getX() - player.getX())/ (Math.abs(getX()-player.getX())) ;
         }
-           
-           
-
+        if(getY() != player.getY()){
+            dirY =(getY() - player.getY())/ (Math.abs(getY()-player.getY())) ;
+        }
+       
+        if(dirX > 0){
+            if(getX() != player.getX()){
+                     setX(getX() - getSpeed());
+            }
+        }  else{
+            if(getX() != player.getX()){
+               setX(getX() + getSpeed() );
+            }
+        }
+         if(dirY > 0){
+            if(getY() != player.getY()){
+                     setY(getY() - getSpeed());
+            }
+        }  else{
+            if(getY() != player.getY()){
+               setY(getY() + getSpeed() );
+            }
+        }
+       
+        System.out.println("x: " +dirX+ "y: " +  dirY);
+    
          //Colissions
       if(getX() + 60 >= game.getWidth()){
           setX(game.getWidth() - 60);
-          setMovement(3);
-          setCollided(true);
       }
       else if(getX() <= -30){
            setX(-30);
-           setMovement(4);
-           setCollided(true);
       }
       if(getY() + 100 >= game.getHeight()){
           setY(game.getHeight() - 100);
-           setMovement(1);
-           setCollided(true);
       }
       else if(getY() <= -30){
           setY(-30);
-          setMovement(2);
-          setCollided(true);
       }
     }
     /**

@@ -76,8 +76,8 @@ public class Game implements Runnable{
         Random randx2 = new Random();
         Random randy2 = new Random();
         
-        player = new Player(randx1.nextInt(getWidth()+ 1),randy1.nextInt(getHeight()+1), 1, 100, 100, this);
-        enemy = new Enemy(randx2.nextInt(getWidth()+ 1),randy2.nextInt(getHeight()+1), 1, 100, 100, this);
+        player = new Player(randx1.nextInt(getWidth()+ 30),randy1.nextInt(getHeight()+1), 1, 100, 100, this);
+        enemy = new Enemy(randx2.nextInt(getWidth()+ 30),randy2.nextInt(getHeight()+1), 1, 100, 100, this,player);
         display.getJframe().addKeyListener(keyManager);
         display.getJframe().addMouseListener(mouseManager);
         display.getJframe().addMouseMotionListener(mouseManager);
@@ -122,6 +122,7 @@ public class Game implements Runnable{
     private void tick(){
        keyManager.tick();
        player.tick();
+       enemy.tick();
     }
     /**
      * render method
