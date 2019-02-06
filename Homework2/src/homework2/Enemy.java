@@ -111,6 +111,15 @@ public class Enemy extends Item{
     public void setWidth(int width) {
         this.width = width;
     }
+     /**
+     * 
+     * @param x
+     * @param y 
+     */
+    public void enemySetNewPos(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
     /**
      * The overall movement of the player
      */
@@ -142,10 +151,8 @@ public class Enemy extends Item{
                setY(getY() + getSpeed() );
             }
         }
-       
-        System.out.println("x: " +dirX+ "y: " +  dirY);
-    
-         //Colissions
+     
+      //Colissions
       if(getX() + 60 >= game.getWidth()){
           setX(game.getWidth() - 60);
       }

@@ -16,6 +16,8 @@ public class Player extends Item{
     private int speed;
     private int movement;
     
+    public static int lives;
+    
     private boolean collided;    
     private int counter;
     
@@ -29,7 +31,7 @@ public class Player extends Item{
      * @param height
      * @param game 
      */
-    public Player(int x, int y, int direction, int width, int height, Game game) {
+    public Player(int x, int y, int direction, int width, int height, Game game, int lives) {
         super(x, y);
         this.direction = direction;
         this.width = width;
@@ -39,6 +41,20 @@ public class Player extends Item{
         this.collided = false;
         this.counter = 0;
         this.movement = 1;
+        this.lives = lives;
+    }
+    /**
+     * 
+     */
+    public void decreaseLives(){
+        this.lives--;
+    }
+    /**
+     * 
+     * @return lives
+     */
+    public int getLives(){
+        return this.lives;
     }
     /**
      * 
@@ -119,6 +135,15 @@ public class Player extends Item{
         this.width = width;
     }
     /**
+     * 
+     * @param x
+     * @param y 
+     */
+    public void playerSetNewPos(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+     /**
      * The overall movement of the player
      */
     @Override
