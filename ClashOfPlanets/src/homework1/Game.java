@@ -25,7 +25,7 @@ public class Game implements Runnable{
     private KeyManager keyManager;
     
     /**
-     * 
+     * Game constructor
      * @param title
      * @param width
      * @param height 
@@ -38,14 +38,14 @@ public class Game implements Runnable{
         keyManager = new KeyManager();
     }
     /**
-     * 
+     * getHeight method
      * @return height 
      */
     public int getHeight() {
         return height;
     }
     /**
-     * 
+     * getWidth method
      * @return width
      */
     public int getWidth() {
@@ -86,7 +86,7 @@ public class Game implements Runnable{
         stop();
     }
     /**
-     * 
+     * getKeyManager method
      * @return keyManager
      */
      public KeyManager getKeyManager() {

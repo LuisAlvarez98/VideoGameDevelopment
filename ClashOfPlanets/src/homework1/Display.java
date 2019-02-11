@@ -29,21 +29,21 @@ public class Display {
         createDisplay();
     }
     /**
-     * 
+     *  getJframe method
      * @return jframe
      */
     public JFrame getJframe() {
         return jframe;
     }
     /**
-     * 
+     * setJframe method
      * @param jframe 
      */
     public void setJframe(JFrame jframe) {
         this.jframe = jframe;
     }
     /**
-     * 
+     * getCanvas method
      * @return canvas
      */
     public Canvas getCanvas(){

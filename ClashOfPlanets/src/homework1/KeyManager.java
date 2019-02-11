@@ -28,14 +28,14 @@ public class KeyManager implements KeyListener{
         keys = new boolean[256];
     }
     /**
-     * 
+     * keyTyped method
      * @param e 
      */
     @Override
     public void keyTyped(KeyEvent e){
     }
     /**
-     * 
+     * keyPressed method
      * @param e 
      */
     @Override
@@ -43,7 +43,7 @@ public class KeyManager implements KeyListener{
         //keys[e.getKeyCode()] = false;
     }
     /**
-     * 
+     * keyReleased method
      * @param e 
      */
     @Override

@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
  */
 public class ImageLoader {
     /**
-     * 
+     * Image loader
      * @param path
      * @return bufferedImage
      */

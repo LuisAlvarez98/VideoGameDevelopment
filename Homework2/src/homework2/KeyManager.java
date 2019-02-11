@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package homework2;
 
 import java.awt.event.KeyEvent;
@@ -11,7 +6,7 @@ import java.awt.event.KeyListener;
 /**
  * KeyManager Class
  * @author Luis Felipe Alvarez Sanchez A01194173
- * 4 Feb 2019
+ * 10 Feb 2019
  */
 public class KeyManager implements KeyListener{
     //Flags to move the player
@@ -28,14 +23,14 @@ public class KeyManager implements KeyListener{
         keys = new boolean[256];
     }
     /**
-     * 
+     * keyTyped method
      * @param e 
      */
     @Override
     public void keyTyped(KeyEvent e){
     }
     /**
-     * 
+     * keyPressed method
      * @param e 
      */
     @Override
@@ -43,7 +38,7 @@ public class KeyManager implements KeyListener{
         //keys[e.getKeyCode()] = false;
     }
     /**
-     * 
+     * keyReleased method
      * @param e 
      */
     @Override

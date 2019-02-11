@@ -41,28 +41,28 @@ public class Player extends Item{
         this.movement = 1;
     }
     /**
-     * 
+     * setSpeed method
      * @param speed 
      */
       public void setSpeed(int speed) {
         this.speed = speed;
     }
     /**
-     * 
+     * getSpeed method
      * @return speed
      */
     public int getSpeed() {
         return speed;
     }
     /**
-     * 
+     * getMovement method
      * @return movement
      */
     public int getMovement() {
         return movement;
     }
     /**
-     * 
+     * setMovement method
      * @param movement 
      */
     public void setMovement(int movement) {
@@ -70,55 +70,56 @@ public class Player extends Item{
     }
 
     /**
-     * 
+     * setCollided method
      * @param collided 
      */
     public void setCollided(boolean collided) {
         this.collided = collided;
     }
     /**
-     * 
+     * getDirection method
      * @return direction 
      */
     public int getDirection() {
         return direction;
     }
     /**
-     * 
+     * setDirection method
      * @param direction 
      */
     public void setDirection(int direction) {
         this.direction = direction;
     }
     /**
-     * 
+     * getHeight method
      * @return height
      */
     public int getHeight() {
         return height;
     }
     /**
-     * 
+     * getWidth method
      * @return width
      */
     public int getWidth() {
         return width;
     }
     /**
-     * 
+     * setHeight method
      * @param height 
      */
     public void setHeight(int height) {
         this.height = height;
     }
     /**
-     * 
+     * setWidth method
      * @param width 
      */
     public void setWidth(int width) {
         this.width = width;
     }
     /**
+     * tick method
      * The overall movement of the player
      */
     @Override

@@ -8,7 +8,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 /**
  * Display Class
  * @author Luis Felipe Alvarez Sanchez A01194173
- * 4 Feb 2019
+ * 10 Feb 2019
  */
 public class Display {
     private JFrame jframe;
@@ -29,21 +29,21 @@ public class Display {
         createDisplay();
     }
     /**
-     * 
+     * getJframe method
      * @return jframe
      */
     public JFrame getJframe() {
         return jframe;
     }
     /**
-     * 
+     * setJframe method
      * @param jframe 
      */
     public void setJframe(JFrame jframe) {
         this.jframe = jframe;
     }
     /**
-     * 
+     * getCanvas method
      * @return canvas
      */
     public Canvas getCanvas(){

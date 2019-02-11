@@ -7,11 +7,11 @@ import javax.imageio.ImageIO;
 /**
  * ImageLoader Class
  * @author Luis Felipe Alvarez Sanchez A01194173
- * 4 Feb 2019
+ * 10 Feb 2019
  */
 public class ImageLoader {
     /**
-     * 
+     * Image loader
      * @param path
      * @return bufferedImage
      */

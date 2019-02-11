@@ -1,14 +1,14 @@
 package homework2;
 
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 
 /**
- *  Player class
+ *  Enemy class
  * @author Luis Felipe Alvarez Sanchez A01194173
- *  4 Feb 2019
+ *  10 Feb 2019
  */
 public class Enemy extends Item{
+    //Instance Variables
     private int direction;
     private int width;
     private int height;
@@ -22,7 +22,7 @@ public class Enemy extends Item{
     
     
     /**
-     * Player constructor
+     * Enemy constructor
      * @param x
      * @param y
      * @param direction
@@ -41,78 +41,77 @@ public class Enemy extends Item{
         this.player = player;
     }
     /**
-     * 
+     * setSpeed method
      * @param speed 
      */
       public void setSpeed(int speed) {
         this.speed = speed;
     }
     /**
-     * 
+     * getSpeed method
      * @return speed
      */
     public int getSpeed() {
         return speed;
     }
     /**
-     * 
+     * getMovement method
      * @return movement
      */
     public int getMovement() {
         return movement;
     }
     /**
-     * 
+     * setMovement method
      * @param movement 
      */
     public void setMovement(int movement) {
         this.movement = movement;
     }
-
     /**
-     * 
+     * getDirection method
      * @return direction 
      */
     public int getDirection() {
         return direction;
     }
     /**
-     * 
+     * setDirection method
      * @param direction 
      */
     public void setDirection(int direction) {
         this.direction = direction;
     }
     /**
-     * 
+     * getHeight method
      * @return height
      */
     public int getHeight() {
         return height;
     }
     /**
-     * 
+     * getWidth method
      * @return width
      */
     public int getWidth() {
         return width;
     }
     /**
-     * 
+     * setHeight method
      * @param height 
      */
     public void setHeight(int height) {
         this.height = height;
     }
     /**
-     * 
+     * setWidth method
      * @param width 
      */
     public void setWidth(int width) {
         this.width = width;
     }
      /**
-     * 
+     * enemySetNewPos method
      * @param x
      * @param y 
      */
@@ -121,15 +120,19 @@ public class Enemy extends Item{
         this.y = y;
     }
     /**
-     * The overall movement of the player
+     * tick method
+     * The overall movement of the enemy
      */
     @Override
     public void tick() {  
        
+        //Enemy movement algorithm
         if(getX() != player.getX()){
+            //Moves in x direction towards the player
            dirX =(getX() - player.getX())/ (Math.abs(getX()-player.getX())) ;
         }
         if(getY() != player.getY()){
+            //Moves in y direction towards the player
             dirY =(getY() - player.getY())/ (Math.abs(getY()-player.getY())) ;
         }
        
@@ -167,7 +170,7 @@ public class Enemy extends Item{
       }
     }
     /**
-     * Renders the player
+     * Renders the enemy
      * @param g 
      */
     @Override
