@@ -3,6 +3,7 @@ package homework2;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
+import java.util.LinkedList;
 import java.util.Random;
 /**
  * Game Class
@@ -21,6 +22,7 @@ public class Game implements Runnable{
     //Entities
     private Player player;
     private Enemy enemy;
+    private LinkedList<Heart> hearts;
     
     private KeyManager keyManager;
     private MouseManager mouseManager;
@@ -40,6 +42,7 @@ public class Game implements Runnable{
         keyManager = new KeyManager();
         mouseManager = new MouseManager();
         this.gameover = false;
+        hearts = new LinkedList<Heart>();
     }
     /**
      * isGameover method
@@ -93,6 +96,11 @@ public class Game implements Runnable{
         //Places the enemy and the player on random positions
         player = new Player(randx1.nextInt(getWidth()+ 30),randy1.nextInt(getHeight()+1), 1, 100, 100, this,3);
         enemy = new Enemy(randx2.nextInt(getWidth()+ 30),randy2.nextInt(getHeight()+1), 1, 100, 100, this,player);
+        //Init lives
+        hearts.add(new Heart(0,0,50,50));
+        hearts.add(new Heart(50,0,50,50));
+        hearts.add(new Heart(100,0,50,50));
+
         
         display.getJframe().addKeyListener(keyManager);
         display.getJframe().addMouseListener(mouseManager);
@@ -167,7 +175,6 @@ public class Game implements Runnable{
                 //if player lives <= 0 {game over}
                 if(player.getLives() <=0){
                     setGameOver(true);
-                    System.out.println("GAME OVER");
                 }
             }
         }
@@ -183,6 +190,16 @@ public class Game implements Runnable{
             g = bs.getDrawGraphics();
             g.drawImage(Assets.background,0,0,width,height,null);
             player.render(g);
+            //Renders lives each tick
+            for(int i = 0; i < player.getLives(); i++){
+                 Heart heart = hearts.get(i);
+                 heart.render(g);
+            }
+            //If gameover , draws a gameover image!
+              if(isGameover()){
+                 g.drawImage(Assets.gameOver,0, 0, getWidth(), getHeight(), null);
+                //render gameover
+               }
             enemy.render(g);
             bs.show();
             g.dispose();
